@@ -5,7 +5,7 @@ import cv2
 # 2D
 
 grid_im = cv2.imread('images/Capacitor_Electrodes.png')
-electrode1 = electrode2 = []
+electrode1, electrode2 = [], []
 initial_grid = np.zeros((np.shape(grid_im)[0],np.shape(grid_im)[1]))
 x_grid, y_grid = np.shape(initial_grid)[0],np.shape(initial_grid)[1]
 for ii in range(np.shape(grid_im)[0]):
@@ -49,7 +49,11 @@ for cc in range(iterationsteps):
 
 
 
-levels = [-0.5, 1, 0.5]
+levels = [-1, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 0.99999]
 
-plt.contour(grid0, 10)
+a = electrode1[0]
+b = electrode2[0]
+print(grid0[a[0],a[1]], a, grid0[b[0],b[1]], b)
+
+plt.contour(grid0, levels=levels)
 plt.show()
