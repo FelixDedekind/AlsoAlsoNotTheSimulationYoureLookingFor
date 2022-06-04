@@ -2,9 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import cv2
 
-from numpy import sqrt, pi
-#import matplotlib.pyplot as plt
-
 # 2D
 
 grid_im = cv2.imread('images/Capacitor_Electrodes.png')
@@ -19,11 +16,6 @@ for ii in range(np.shape(grid_im)[0]):
         elif(grid_im[ii,jj,2]!=0):
             electrode2.append([ii, jj])
             initial_grid[ii, jj] = -1
-#initialGrid = np.zeros((x_grid,y_grid))
-#electrode1 = [round(x_grid/4), round(y_grid/2)]
-#electrode2 = [round(3*x_grid/4), round(y_grid/2)]
-#initialGrid[electrode1[0],electrode1[1]] = 1
-#initialGrid[electrode2[0],electrode2[1]] = -1
 
 
 
@@ -59,7 +51,5 @@ for cc in range(iterationsteps):
 
 levels = [-0.5, 1, 0.5]
 
-plt.contour(grid0, 10)  #"15" is the number of equipotential lines
-#plt.contour(grid0, levels=levels)  #levels specifies exactly what values you want the contours for
-#plt.imshow(grid0, cmap='') #cmap list somewhere on the internet i guess
+plt.contour(grid0, 10)
 plt.show()
